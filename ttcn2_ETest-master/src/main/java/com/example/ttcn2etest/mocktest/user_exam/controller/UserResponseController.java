@@ -24,13 +24,14 @@ public class UserResponseController {
 
 
     @PostMapping("")
-//    @PreAuthorize("hasAnyAuthority('CUSTOMER')")
+    @PreAuthorize("hasAnyAuthority('CUSTOMER')")
     public ResponseEntity<?> createUserResponse(@RequestBody UserResponseRequest request) {
         UserResponseDTO userResponse = userResponseService.createUserResponse(request);
         return ResponseEntity.ok(userResponse);
     }
 
     @GetMapping("")
+    @PreAuthorize("hasAnyAuthority('ADMIN' ,'TEACHER')")
     public ResponseEntity<?> getallUserResponse(){
         return userResponseService.listUserResponse();
     }
@@ -38,6 +39,7 @@ public class UserResponseController {
 
 
     @PutMapping("")
+    @PreAuthorize("hasAnyAuthority('ADMIN' ,'TEACHER')")
     public ResponseEntity<?> updateUserResponse(@RequestBody UserResponseRequest request) {
 
         return userResponseService.updateUserResponse(request);
@@ -45,6 +47,7 @@ public class UserResponseController {
 
 
     @PutMapping("count")
+    @PreAuthorize("hasAnyAuthority('ADMIN' )")
     public ResponseEntity<?> updateMaxCount (@RequestBody UserResponseRequest request){
         return ResponseEntity.ok(userResponseService.updateMaxCount(request));
     }

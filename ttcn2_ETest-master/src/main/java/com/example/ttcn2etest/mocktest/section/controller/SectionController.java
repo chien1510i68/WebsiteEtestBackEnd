@@ -7,6 +7,7 @@ import com.example.ttcn2etest.mocktest.section.entity.Section;
 import com.example.ttcn2etest.mocktest.section.request.SectionRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -23,6 +24,7 @@ public class SectionController {
     }
 
     @PostMapping("create")
+    @PreAuthorize("hasAnyAuthority('ADMIN' ,'TEACHER' ,'STAFF')")
     public ResponseEntity<?> createSection(@RequestBody SectionRequest request) {
         Section section = sectionService.createSection(request);
         BaseItemResponse response = new BaseItemResponse();
@@ -32,6 +34,7 @@ public class SectionController {
     }
 
     @PutMapping("update")
+    @PreAuthorize("hasAnyAuthority('ADMIN' ,'TEACHER' ,'STAFF')")
     public ResponseEntity<?> updateSection(@RequestBody SectionRequest sectionRequest) {
         Section section = sectionService.updateSection(sectionRequest);
         BaseItemResponse baseItemResponse = new BaseItemResponse();
@@ -41,15 +44,14 @@ public class SectionController {
 
     }
     @DeleteMapping("del/{id}")
+    @PreAuthorize("hasAnyAuthority('ADMIN' ,'TEACHER' ,'STAFF')")
     public ResponseEntity<?> deleteSection (@PathVariable String id){
         boolean isDelete = sectionService.deleteSection(id);
-//        BaseItemResponse baseItemResponse = new BaseItemResponse();
-//        baseItemResponse.setSuccess();
-//        baseItemResponse.setData(isDelete);
         return ResponseEntity.ok(isDelete);
     }
 
     @GetMapping("")
+    @PreAuthorize("hasAnyAuthority('ADMIN' ,'TEACHER' ,'STAFF')")
     public ResponseEntity<?> getAllSection() {
         List<Section> sections = sectionService.getAllSection();
         BaseListItemResponse response = new BaseListItemResponse();

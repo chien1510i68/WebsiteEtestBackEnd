@@ -8,6 +8,7 @@ import com.example.ttcn2etest.response.BaseItemResponse;
 import com.example.ttcn2etest.response.BaseListItemResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -25,6 +26,7 @@ public class QuestionController {
     }
 
     @PostMapping("create")
+    @PreAuthorize("hasAnyAuthority('ADMIN' ,'TEACHER' ,'STAFF')")
 //    @PreAuthorize("hasAnyAuthority('MOD' ,'ADMIN')")
     public ResponseEntity<?> createQuestion(@RequestBody CreateQuestionRequest req) {
         Question question = questionService.createQuestion(req);
@@ -35,6 +37,7 @@ public class QuestionController {
     }
 
     @PostMapping("update")
+    @PreAuthorize("hasAnyAuthority('ADMIN' ,'TEACHER' ,'STAFF')")
     public ResponseEntity<?> updateQuestion(@RequestBody CreateQuestionRequest request) {
         Question question = questionService.updateQuestion(request);
         BaseItemResponse baseItemResponse = new BaseItemResponse();
@@ -44,6 +47,7 @@ public class QuestionController {
     }
 
     @DeleteMapping("del/{id}")
+    @PreAuthorize("hasAnyAuthority('ADMIN' ,'TEACHER' ,'STAFF')")
     public ResponseEntity<?> deleteQuestion(@PathVariable String id) {
         Boolean isDelete = questionService.deleteQuestion(id);
         BaseItemResponse response = new BaseItemResponse();
@@ -52,6 +56,7 @@ public class QuestionController {
     }
 
     @GetMapping("")
+    @PreAuthorize("hasAnyAuthority('ADMIN' ,'TEACHER' ,'STAFF')")
     public ResponseEntity<?> getAll() {
         List<Question> questions = questionService.listQuestion();
         BaseListItemResponse response = new BaseListItemResponse();
@@ -69,6 +74,7 @@ public class QuestionController {
         return ResponseEntity.ok(response);
     }
     @PostMapping("addToSection")
+    @PreAuthorize("hasAnyAuthority('ADMIN' ,'TEACHER' ,'STAFF')")
     public ResponseEntity<?> addQuestionToSection (@RequestBody CreateQuestionRequest request){
         Question question = questionService.addQuestionInSection(request);
         BaseItemResponse baseItemResponse = new BaseItemResponse();

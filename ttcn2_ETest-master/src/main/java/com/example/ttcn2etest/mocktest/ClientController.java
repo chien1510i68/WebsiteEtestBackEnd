@@ -21,24 +21,21 @@ import java.util.UUID;
 @RequiredArgsConstructor
 @RequestMapping("/client/")
 public class ClientController {
-    private final ExamService examService ;
-    private final UserResponseService userResponseService ;
-    private  final UserResultsService userResultsService ;
+    private final ExamService examService;
+    private final UserResponseService userResponseService;
+    private final UserResultsService userResultsService;
 
     @GetMapping("exam/all")
-    public ResponseEntity<?> getAllExamFree(){
-
+    public ResponseEntity<?> getAllExamFree() {
         return ResponseEntity.ok(examService.getAllExamFree());
     }
-    @GetMapping("exam/")
-    public ResponseEntity<?> getallExam(){
-        return ResponseEntity.ok(examService.getAllExam());
-    }
+
     @GetMapping("exam/{id}")
     public ResponseEntity<?> getExamByID(@PathVariable String id) {
         DetailExamDTO exam = examService.getByID(id);
         return ResponseEntity.ok(exam);
     }
+
     @PostMapping("exam/detail")
     public ResponseEntity<?> findSections(@RequestBody UserTestRequest request) {
         BaseListItemResponse response = new BaseListItemResponse();
@@ -46,20 +43,10 @@ public class ClientController {
         List<Section> sections = examService.findQuestionByType(request.getId(), request.getType());
         response.setResult(sections, sections.size());
         return ResponseEntity.ok(response);
-
     }
+
     @PostMapping("response/add")
-//    @PreAuthorize("hasAnyAuthority('CUSTOMER')")
     public ResponseEntity<?> addUserResponse(@RequestBody UserResponseRequest request) {
-
-
         return userResponseService.addUserResponse(request);
-
     }
-
-    @PostMapping("result/all")
-    public ResponseEntity<?> getListResults(@RequestBody UserResultsRequest  request){
-        return userResultsService.getListUserResults (request);
-    }
-
 }

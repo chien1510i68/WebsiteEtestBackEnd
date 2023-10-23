@@ -11,6 +11,7 @@ import com.example.ttcn2etest.response.BaseItemResponse;
 import com.example.ttcn2etest.response.BaseListItemResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -29,6 +30,7 @@ public class ExamController {
 
 
     @PostMapping("create")
+    @PreAuthorize("hasAnyAuthority('ADMIN' ,'TEACHER' ,'STAFF')")
     public ResponseEntity<?> createExam(@RequestBody ExamRequest request) {
         Exam exam = examService.createExam(request);
         BaseItemResponse response = new BaseItemResponse();
@@ -37,7 +39,14 @@ public class ExamController {
         return ResponseEntity.ok(response);
     }
 
+    @GetMapping("/")
+    @PreAuthorize("hasAnyAuthority('ADMIN' ,'TEACHER' ,'STAFF')")
+    public ResponseEntity<?> getAllExam(){
+        return ResponseEntity.ok(examService.getAllExam());
+    }
+
     @PutMapping("update")
+    @PreAuthorize("hasAnyAuthority('ADMIN' ,'TEACHER' ,'STAFF')")
     public ResponseEntity<?> updateExam(@RequestBody ExamRequest request) {
         BaseItemResponse baseItemResponse = new BaseItemResponse();
         baseItemResponse.setSuccess();
@@ -54,6 +63,7 @@ public class ExamController {
     }
 
     @DeleteMapping("del/{id}")
+    @PreAuthorize("hasAnyAuthority('ADMIN' ,'TEACHER' ,'STAFF')")
     public ResponseEntity<?> deleteByID(@PathVariable String id) {
 
         boolean isDelete = examService.deleteExam(id);
@@ -95,9 +105,11 @@ public class ExamController {
     }
 
     @GetMapping("/examService/{id}")
+    @PreAuthorize("hasAnyAuthority('CUSTOMER')")
     public ResponseEntity<?> listExamByService (@PathVariable long id){
         return examService.getListExamByService(id);
     }
+    @PreAuthorize("hasAnyAuthority('ADMIN' ,'TEACHER' ,'STAFF')")
     @PostMapping("importFile")
     public ResponseEntity<?> readDataFormExcel(@RequestBody MultipartFile file ) {
         return examService.readExamFromExcel(file);
