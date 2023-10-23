@@ -69,6 +69,7 @@ public class WebSecurityConfig {
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
                 .authorizeRequests()
                 .requestMatchers("/auth/**").permitAll()
+                .requestMatchers("/client/**").permitAll()
                 .requestMatchers("/user/auth/**").permitAll()
                 .requestMatchers("/file/**").permitAll()
                 .requestMatchers("/user/forgot/password").permitAll()

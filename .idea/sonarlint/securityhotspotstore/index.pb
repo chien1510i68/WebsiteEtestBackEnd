@@ -277,8 +277,6 @@ S
 #.idea/sonarlint/issuestore/index.pb,9\f\9fe84ebb15faf917b7def6236dba604453cc61e0
 ]
 -.idea/sonarlint/securityhotspotstore/index.pb,8\8\88a9255124c95bdc913197c120a8d560edc59c8e
-‡
-Wttcn2_ETest-master/src/main/java/com/example/ttcn2etest/security/WebSecurityConfig.java,7\3\738cf601b29e5692dd9131772538d02d17f7fc31
 ‰
 Yttcn2_ETest-master/src/main/java/com/example/ttcn2etest/service/user/UserServiceImpl.java,3\1\31624edaa024dff65ba6a87aadc468b494689f4c
 ‰
