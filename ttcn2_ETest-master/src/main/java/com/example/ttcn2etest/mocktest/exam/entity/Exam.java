@@ -20,12 +20,7 @@ import java.util.UUID;
 @Entity
 
 public class Exam {
-
-
-
-
     @Id
-
     private String id = UUID.randomUUID().toString();
     private String name;
     private String type;

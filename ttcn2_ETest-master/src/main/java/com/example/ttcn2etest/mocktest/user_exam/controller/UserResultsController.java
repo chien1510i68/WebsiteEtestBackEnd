@@ -1,6 +1,6 @@
 package com.example.ttcn2etest.mocktest.user_exam.controller;
 
-import com.example.ttcn2etest.mocktest.user_exam.request.FilterUserResnponseRequest;
+import com.example.ttcn2etest.mocktest.user_exam.request.FilterUserResultsRequest;
 import com.example.ttcn2etest.mocktest.user_exam.request.StatisticResultsRequest;
 import com.example.ttcn2etest.mocktest.user_exam.request.UserResultsRequest;
 import com.example.ttcn2etest.mocktest.user_exam.service.UserResultsService;
@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 
 @RestController
-@RequestMapping("client/mocktest/results/")
+@RequestMapping("/mocktest/results/")
 @RequiredArgsConstructor
 public class UserResultsController {
     private final UserResultsService userResultsService;
@@ -33,7 +33,7 @@ public class UserResultsController {
     }
     @PostMapping("filter")
     @PreAuthorize("hasAnyAuthority('ADMIN' ,'TEACHER')")
-    public ResponseEntity<?> filterResultsASC(@RequestBody FilterUserResnponseRequest request){
+    public ResponseEntity<?> filterResultsASC(@RequestBody FilterUserResultsRequest request){
         return ResponseEntity.ok(userResultsService.sortUserResultsDESC(request));
     }
 

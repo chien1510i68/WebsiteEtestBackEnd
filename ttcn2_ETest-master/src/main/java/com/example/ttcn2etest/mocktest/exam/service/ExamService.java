@@ -36,4 +36,6 @@ public interface ExamService {
     ResponseEntity<?> getListExamByService(long userid) ;
 
     ResponseEntity<?> readExamFromExcel(MultipartFile file);
+
+    ResponseEntity<?> findExamByName (String name) ;
 }

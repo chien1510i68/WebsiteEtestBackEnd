@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/client/mocktest/exam/")
+@RequestMapping("/mocktest/exam/")
 public class ExamController {
     private final ExamService examService;
 
@@ -41,7 +41,7 @@ public class ExamController {
 
     @GetMapping("/")
     @PreAuthorize("hasAnyAuthority('ADMIN' ,'TEACHER' ,'STAFF')")
-    public ResponseEntity<?> getAllExam(){
+    public ResponseEntity<?> getAllExam() {
         return ResponseEntity.ok(examService.getAllExam());
     }
 
@@ -71,6 +71,7 @@ public class ExamController {
     }
 
     @GetMapping("detailExams")
+    @PreAuthorize("hasAnyAuthority('ADMIN' ,'TEACHER' ,'STAFF')")
     public ResponseEntity<?> listDetailExam() {
         List<DetailExamDTO> detailExamDTOS = examService.listDetailExam();
         BaseListItemResponse response = new BaseListItemResponse();
@@ -106,16 +107,22 @@ public class ExamController {
 
     @GetMapping("/examService/{id}")
     @PreAuthorize("hasAnyAuthority('CUSTOMER')")
-    public ResponseEntity<?> listExamByService (@PathVariable long id){
+    public ResponseEntity<?> listExamByService(@PathVariable long id) {
         return examService.getListExamByService(id);
     }
-    @PreAuthorize("hasAnyAuthority('ADMIN' ,'TEACHER' ,'STAFF')")
+
     @PostMapping("importFile")
-    public ResponseEntity<?> readDataFormExcel(@RequestBody MultipartFile file ) {
+    @PreAuthorize("hasAnyAuthority('ADMIN' ,'TEACHER' ,'STAFF')")
+    public ResponseEntity<?> readDataFormExcel(@RequestBody MultipartFile file) {
         return examService.readExamFromExcel(file);
     }
 
+    @GetMapping("find/{name}")
+    @PreAuthorize("hasAnyAuthority('ADMIN' ,'TEACHER' ,'STAFF')")
+    public ResponseEntity<?> getListExamByName(@PathVariable String name){
+        return ResponseEntity.ok().body(examService.findExamByName(name.toUpperCase()));
+//        return ResponseEntity.ok().body(name);
 
-
+    }
 
 }

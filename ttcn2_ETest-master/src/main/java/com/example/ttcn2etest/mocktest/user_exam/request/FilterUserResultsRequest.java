@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 
-public class FilterUserResnponseRequest {
+public class FilterUserResultsRequest {
 //    @NotNull(message = "Id không được để trống ")
     private Long userId ;
     private String dateFrom ;

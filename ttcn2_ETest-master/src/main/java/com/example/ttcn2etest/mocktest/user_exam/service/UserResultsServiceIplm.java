@@ -12,7 +12,7 @@ import com.example.ttcn2etest.mocktest.user_exam.entity.UserResults;
 import com.example.ttcn2etest.mocktest.user_exam.repository.CustomUserResultsRepository;
 import com.example.ttcn2etest.mocktest.user_exam.repository.UserResponseRepository;
 import com.example.ttcn2etest.mocktest.user_exam.repository.UserResultsRepository;
-import com.example.ttcn2etest.mocktest.user_exam.request.FilterUserResnponseRequest;
+import com.example.ttcn2etest.mocktest.user_exam.request.FilterUserResultsRequest;
 import com.example.ttcn2etest.mocktest.user_exam.request.StatisticResultsRequest;
 import com.example.ttcn2etest.mocktest.user_exam.request.UserResultsRequest;
 import com.example.ttcn2etest.repository.user.UserRepository;
@@ -120,7 +120,7 @@ public class UserResultsServiceIplm implements UserResultsService {
     }
 
     @Override
-    public ResponseEntity<?> sortUserResultsASC(FilterUserResnponseRequest request) {
+    public ResponseEntity<?> sortUserResultsASC(FilterUserResultsRequest request) {
         UserResponse response = userResponseRepository.findById(request.getUserResponseId()).orElseThrow(() -> new RuntimeException("user id không tồn tại"));
 //       List<UserResults> userResults = userResultsRepository.findUserResultsByUserResponse(response);
 
@@ -136,7 +136,7 @@ public class UserResultsServiceIplm implements UserResultsService {
     }
 
     @Override
-    public ResponseEntity<?> sortUserResultsDESC(FilterUserResnponseRequest request) {
+    public ResponseEntity<?> sortUserResultsDESC(FilterUserResultsRequest request) {
         UserResponse response = userResponseRepository.findById(request.getUserResponseId()).orElseThrow(() -> new RuntimeException("user id không tồn tại"));
         Specification<UserResults> specification = CustomUserResultsRepository.filterSpecification(request);
 

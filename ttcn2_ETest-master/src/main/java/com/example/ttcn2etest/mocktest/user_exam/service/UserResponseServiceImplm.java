@@ -9,8 +9,10 @@ import com.example.ttcn2etest.mocktest.user_exam.dto.UserResponseDTO;
 import com.example.ttcn2etest.mocktest.user_exam.dto.UserResultsDTO;
 import com.example.ttcn2etest.mocktest.user_exam.entity.UserResponse;
 import com.example.ttcn2etest.mocktest.user_exam.entity.UserResults;
+import com.example.ttcn2etest.mocktest.user_exam.repository.CustomUserResponseRepository;
 import com.example.ttcn2etest.mocktest.user_exam.repository.UserResponseRepository;
 import com.example.ttcn2etest.mocktest.user_exam.repository.UserResultsRepository;
+import com.example.ttcn2etest.mocktest.user_exam.request.FilterUserResponseRequest;
 import com.example.ttcn2etest.mocktest.user_exam.request.UserResponseRequest;
 import com.example.ttcn2etest.mocktest.user_exam.request.UserResultsRequest;
 import com.example.ttcn2etest.model.etity.User;
@@ -27,12 +29,14 @@ import lombok.RequiredArgsConstructor;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.modelmapper.ModelMapper;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import org.springframework.util.StringUtils;
 
 import java.util.*;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 @Service
@@ -50,7 +54,7 @@ public class UserResponseServiceImplm implements UserResponseService {
     private static final Logger logger = LogManager.getLogger(UserResponseServiceImplm.class);
 
 
-//    @Transactional
+    //    @Transactional
     public ResponseEntity<?> addUserResponse(UserResponseRequest request) {
         Exam exam = examRepository.findExamById(request.getExam_id());
 
@@ -233,9 +237,19 @@ public class UserResponseServiceImplm implements UserResponseService {
 
     @Override
     public ResponseEntity<?> updateMaxCount(UserResponseRequest request) {
-        UserResponse userResponse = userResponseRepository.findById(request.getId()).orElseThrow(()->new RuntimeException("Không tim thấy user response"));
+        UserResponse userResponse = userResponseRepository.findById(request.getId()).orElseThrow(() -> new RuntimeException("Không tim thấy user response"));
         userResponse.setMaxCount(request.getMaxCount());
         userResponseRepository.save(userResponse);
-        return ResponseEntity.ok(mapper.map(userResponse , UserResponseDTO.class));
+        return ResponseEntity.ok(mapper.map(userResponse, UserResponseDTO.class));
+    }
+
+    @Override
+    public ResponseEntity<?> filterUserResponseBycondition(FilterUserResponseRequest request) {
+        Specification<UserResponse> specification = CustomUserResponseRepository.filterUserResponse(request);
+        List<UserResponseDTO> userResponseList = userResponseRepository.findAll(specification).stream().map(i -> mapper.map(i, UserResponseDTO.class)).collect(Collectors.toList());
+        BaseListItemResponse itemResponse = new BaseListItemResponse<>();
+        itemResponse.setSuccess();
+        itemResponse.setResult(userResponseList, userResponseList.size());
+        return ResponseEntity.ok(itemResponse);
     }
 }

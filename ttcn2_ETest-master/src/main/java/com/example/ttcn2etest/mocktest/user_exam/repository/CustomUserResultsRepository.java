@@ -4,7 +4,7 @@ import com.example.ttcn2etest.constant.DateTimeConstant;
 import com.example.ttcn2etest.mocktest.exam.entity.Exam;
 import com.example.ttcn2etest.mocktest.user_exam.entity.UserResponse;
 import com.example.ttcn2etest.mocktest.user_exam.entity.UserResults;
-import com.example.ttcn2etest.mocktest.user_exam.request.FilterUserResnponseRequest;
+import com.example.ttcn2etest.mocktest.user_exam.request.FilterUserResultsRequest;
 import com.example.ttcn2etest.utils.MyUtils;
 import jakarta.persistence.criteria.Join;
 import jakarta.persistence.criteria.Predicate;
@@ -19,7 +19,7 @@ import java.util.List;
 
 @Repository
 public class CustomUserResultsRepository {
-    public static Specification<UserResults> filterSpecification(FilterUserResnponseRequest request) {
+    public static Specification<UserResults> filterSpecification(FilterUserResultsRequest request) {
         return (((root, query, criteriaBuilder) -> {
             List<Predicate> predicates = new ArrayList<>();
 

@@ -1,7 +1,6 @@
 package com.example.ttcn2etest.mocktest.exam.service;
 
 import com.example.ttcn2etest.mocktest.answer.entity.Answer;
-import com.example.ttcn2etest.mocktest.answer.repository.AnswerRepository;
 import com.example.ttcn2etest.mocktest.exam.dto.DetailExamDTO;
 import com.example.ttcn2etest.mocktest.exam.dto.ExamDTO;
 import com.example.ttcn2etest.mocktest.exam.entity.Exam;
@@ -32,7 +31,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.IOException;
 import java.io.InputStream;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -119,10 +117,10 @@ public class ExamServiceImplm implements ExamService {
 
     @Override
     public ResponseEntity<?> getAllExam() {
-        List<ExamDTO> examDTOS = examRepository.findAll().stream().map(i -> mapper.map(i,ExamDTO.class)).collect(Collectors.toList());
+        List<ExamDTO> examDTOS = examRepository.findAll().stream().map(i -> mapper.map(i, ExamDTO.class)).collect(Collectors.toList());
         BaseListItemResponse response = new BaseListItemResponse();
         response.setSuccess();
-        response.setResult(examDTOS ,examDTOS.size());
+        response.setResult(examDTOS, examDTOS.size());
         return ResponseEntity.ok(response);
     }
 
@@ -216,8 +214,6 @@ public class ExamServiceImplm implements ExamService {
 
                 Cell correctAnswersCell = row.getCell(16);
                 Cell pointCell = row.getCell(17);
-
-
 
 
                 if (!isExamNameRead) {
@@ -500,7 +496,7 @@ public class ExamServiceImplm implements ExamService {
     }
 
     @Override
-    public ResponseEntity<?> readExamFromExcel(MultipartFile file)  {
+    public ResponseEntity<?> readExamFromExcel(MultipartFile file) {
 
         Exam exam = new Exam();
         Iterator<Row> rowIterator = null;
@@ -547,8 +543,6 @@ public class ExamServiceImplm implements ExamService {
 
                 Cell correctAnswersCell = row.getCell(16);
                 Cell pointCell = row.getCell(17);
-
-
 
 
                 if (!isExamNameRead) {
@@ -673,5 +667,13 @@ public class ExamServiceImplm implements ExamService {
         return null;
     }
 
+    @Override
+    public ResponseEntity<?> findExamByName(String name) {
+        List<DetailExamDTO> detailExamDTOS = examRepository.listExamByName(name).stream().map(i -> mapper.map(i , DetailExamDTO.class)).collect(Collectors.toList());
+       BaseListItemResponse response = new BaseListItemResponse() ;
+       response.setSuccess();
+       response.setResult(detailExamDTOS , detailExamDTOS.size());
 
+        return ResponseEntity.ok(response);
+    }
 }

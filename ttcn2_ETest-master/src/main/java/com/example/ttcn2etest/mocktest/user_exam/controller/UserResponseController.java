@@ -3,6 +3,7 @@ package com.example.ttcn2etest.mocktest.user_exam.controller;
 import com.example.ttcn2etest.mocktest.user_exam.dto.UserResponseDTO;
 import com.example.ttcn2etest.mocktest.user_exam.dto.UserResultsDTO;
 import com.example.ttcn2etest.mocktest.user_exam.entity.UserResponse;
+import com.example.ttcn2etest.mocktest.user_exam.request.FilterUserResponseRequest;
 import com.example.ttcn2etest.mocktest.user_exam.request.UserResponseRequest;
 import com.example.ttcn2etest.mocktest.user_exam.service.UserResponseService;
 import com.example.ttcn2etest.mocktest.user_exam.service.UserResultsService;
@@ -50,6 +51,12 @@ public class UserResponseController {
     @PreAuthorize("hasAnyAuthority('ADMIN' )")
     public ResponseEntity<?> updateMaxCount (@RequestBody UserResponseRequest request){
         return ResponseEntity.ok(userResponseService.updateMaxCount(request));
+    }
+
+    @PostMapping("filter")
+    @PreAuthorize("hasAnyAuthority('ADMIN' )")
+    public ResponseEntity<?> filterByCondition (@RequestBody FilterUserResponseRequest request){
+        return ResponseEntity.ok(userResponseService.filterUserResponseBycondition(request));
     }
 
 
