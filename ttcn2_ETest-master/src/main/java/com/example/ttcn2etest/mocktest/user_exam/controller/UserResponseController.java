@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("client/mocktest/userresponse/")
+@RequestMapping("mocktest/userresponse/")
 public class UserResponseController {
     private final UserResponseService userResponseService;
     private final UserResultsService userResultsService ;
@@ -54,7 +54,7 @@ public class UserResponseController {
     }
 
     @PostMapping("filter")
-    @PreAuthorize("hasAnyAuthority('ADMIN' )")
+    @PreAuthorize("hasAnyAuthority('ADMIN','TEACHER' )")
     public ResponseEntity<?> filterByCondition (@RequestBody FilterUserResponseRequest request){
         return ResponseEntity.ok(userResponseService.filterUserResponseBycondition(request));
     }

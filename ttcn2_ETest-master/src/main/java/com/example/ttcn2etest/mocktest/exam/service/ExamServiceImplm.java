@@ -161,7 +161,19 @@ public class ExamServiceImplm implements ExamService {
     @Override
     public List<Section> findQuestionByType(String id, String type) {
         Optional<Exam> exam = examRepository.findById(id);
-        return exam.get().getSections().stream().filter((section -> section.getType().equals(type))).collect(Collectors.toList());
+        List<Section> sections = exam.get().getSections();
+
+        long seed = System.nanoTime();
+        Collections.shuffle(sections, new Random(seed));
+
+        for (Section section : sections) {
+            List<Question> questions = section.getQuestions();
+            Collections.shuffle(questions, new Random(seed));
+        }
+
+        return sections.stream()
+                .filter(section -> section.getType().equals(type))
+                .collect(Collectors.toList());
     }
 
     @Transactional
