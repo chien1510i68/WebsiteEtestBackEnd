@@ -2,10 +2,13 @@ package com.example.ttcn2etest.fireBase;
 
 import com.google.auth.oauth2.GoogleCredentials;
 import com.google.cloud.storage.*;
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -18,9 +21,20 @@ public class FirebaseStorageService {
     @Value("${firebase.storage.bucket}")
     private String bucketName;
 
+    @Value("${firebase.config.path}")
+    private String fileBasePath;
+
     public String uploadFile(MultipartFile file) throws IOException {
-        InputStream serviceAccount = getClass().getResourceAsStream("/edustar-231a3-firebase-adminsdk-eqjyb-0d04b578c1.json");
-        GoogleCredentials credentials = GoogleCredentials.fromStream(serviceAccount);
+        InputStream inputStream = null;
+        if(StringUtils.isEmpty(fileBasePath)){
+            inputStream = new FileInputStream(new File(fileBasePath));
+        }else {
+            inputStream = getClass().getResourceAsStream("/edustar-231a3-firebase-adminsdk-eqjyb-0d04b578c1.json");
+        }
+
+//        InputStream inputStream = new FileInputStream(new File(fileBasePath));
+//        InputStream serviceAccount = getClass().getResourceAsStream("/edustar-231a3-firebase-adminsdk-eqjyb-0d04b578c1.json");
+        GoogleCredentials credentials = GoogleCredentials.fromStream(inputStream);
         StorageOptions storageOptions = StorageOptions.newBuilder().setCredentials(credentials).build();
         Storage storage = storageOptions.getService();
 
