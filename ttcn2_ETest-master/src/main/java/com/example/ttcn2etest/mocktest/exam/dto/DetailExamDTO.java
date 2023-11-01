@@ -16,7 +16,7 @@ public class DetailExamDTO {
     private String id;
     private String name;
     private long timeExam;
-
+    private boolean isFree ;
     private String typeExam ;
     private List<SectionDTO> sections ;
 }

@@ -71,15 +71,21 @@ public class ExamServiceImplm implements ExamService {
     }
 
     @Override
-    public Exam updateExam(ExamRequest request) {
+    public ExamDTO updateExam(ExamRequest request) {
         Optional<Exam> exam = examRepository.findById(request.getId());
         if (!exam.isPresent()) {
             throw new RuntimeException("Không tìm thấy id");
         }
         exam.get().setTimeExam(request.getTimeExam());
         exam.get().setName(request.getName());
-        examRepository.save(exam.get());
-        return exam.get();
+        if(request.getIsFree()){
+            exam.get().setIsFree(true);
+        }else {
+            exam.get().setIsFree(false);
+        }
+        exam.get().setType(request.getType());
+
+        return mapper.map(examRepository.saveAndFlush(exam.get()) , ExamDTO.class);
     }
 
     @Override
@@ -106,7 +112,7 @@ public class ExamServiceImplm implements ExamService {
     public ResponseEntity<?> getAllExamFree() {
         List<ExamDTO> examDTOS = new ArrayList<>();
         List<Exam> exams = examRepository.findAll();
-        examDTOS = exams.stream().filter(i -> i.isFree() == true).map(i -> mapper.map(i, ExamDTO.class)).collect(Collectors.toList());
+        examDTOS = exams.stream().filter(i -> i.getIsFree() == true).map(i -> mapper.map(i, ExamDTO.class)).collect(Collectors.toList());
 
         BaseListItemResponse response = new BaseListItemResponse();
         response.setResult(examDTOS, examDTOS.size());

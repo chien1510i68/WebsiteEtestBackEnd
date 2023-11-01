@@ -15,7 +15,7 @@ import java.util.UUID;
 public interface ExamService {
     Exam createExam(ExamRequest request);
 
-    Exam updateExam(ExamRequest request);
+    ExamDTO updateExam(ExamRequest request);
 
     boolean deleteExam(String id);
 

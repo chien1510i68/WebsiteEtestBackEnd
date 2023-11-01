@@ -1,0 +1,51 @@
+
+[	java:S1121"FDefine and throw a dedicated exception instead of using a generic one.(ÓŞÔ£
+`	java:S112o"FDefine and throw a dedicated exception instead of using a generic one.(·ÑÛıÿÿÿÿ
+J
+java:S3740B"/Provide the parametrized type for this generic.(Ôª˜«úÿÿÿÿ
+J
+java:S3740B"/Provide the parametrized type for this generic.(Ôª˜«úÿÿÿÿ
+E
+java:S3740e"/Provide the parametrized type for this generic.(»Ş¸»
+E
+java:S3740e"/Provide the parametrized type for this generic.(»Ş¸»
+J
+java:S3740s"/Provide the parametrized type for this generic.(Š…µÿıÿÿÿÿ
+F
+java:S3740–"/Provide the parametrized type for this generic.(­ÛîŞ
+F
+java:S3740£"/Provide the parametrized type for this generic.(Ò’éç
+F
+java:S3740£"/Provide the parametrized type for this generic.(Ò’éç
+7
+java:S1116Y"Remove this empty statement.(Åñ­õşÿÿÿÿ
+h
+java:S6204a"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(£ÔÉ
+F
+java:S1611["0Remove the parentheses around the "rs" parameter(¼©ë­
+g
+java:S6204r"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(Ğ¸õ<
+W
+java:S1854|"<Remove this useless assignment to local variable "response".(İàÚÑüÿÿÿÿ
+H
+java:S1481|"-Remove this unused "response" local variable.(İàÚÑüÿÿÿÿ
+Q	java:S125}"<This block of commented-out lines of code should be removed.(›è¨Û
+R	java:S125€"<This block of commented-out lines of code should be removed.(ˆ¿”»
+X
+java:S1854‘"<Remove this useless assignment to local variable "pageable".(âñÅşÿÿÿÿÿ
+X
+java:S1854Œ"<Remove this useless assignment to local variable "response".(İàÚÑüÿÿÿÿ
+I
+java:S1481Œ"-Remove this unused "response" local variable.(İàÚÑüÿÿÿÿ
+I
+java:S1481‘"-Remove this unused "pageable" local variable.(âñÅşÿÿÿÿÿ
+i
+java:S6204”"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(­ğ•Ó
+g
+java:S6204¢"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(´Í
+1
+java:S1116¢"Remove this empty statement.(´Í
+i
+java:S6204«"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(ª™¨¹
+n
+java:S6204±"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(¢Ÿ”ªıÿÿÿÿ

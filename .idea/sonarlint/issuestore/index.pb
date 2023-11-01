@@ -21,8 +21,6 @@ cttcn2_ETest-master/src/main/java/com/example/ttcn2etest/request/document/Create
 Qttcn2_ETest-master/src/main/java/com/example/ttcn2etest/model/etity/Document.java,f\4\f434739308301ba1c17a6f0bc849baf1b445b9b1
 Å
 Qttcn2_ETest-master/src/main/java/com/example/ttcn2etest/model/dto/ServiceDTO.java,a\3\a36b6360629418fddcc188f33f8b711f1335ab32
-á
-Wttcn2_ETest-master/src/main/java/com/example/ttcn2etest/security/AuthEntryPointJwt.java,7\d\7d235d18f481f3a152dc9a543141e256b51e2b67
 Ü
 Vttcn2_ETest-master/src/main/java/com/example/ttcn2etest/request/auth/LoginRequest.java,d\4\d4ff392ccb0c14f337caf49c8ffe129d23e4dda6
 Ü
@@ -163,8 +161,6 @@ Vttcn2_ETest-master/src/main/java/com/example/ttcn2etest/controller/BaseControll
 Wttcn2_ETest-master/src/main/java/com/example/ttcn2etest/service/auth/AuthenService.java,c\5\c5c34291a84f5f97961e2d3ebc40898a02f74ffe
 ã
 [ttcn2_ETest-master/src/main/java/com/example/ttcn2etest/service/auth/AuthenServiceImpl.java,5\5\5579c97396d7a16c56567dcc0259b778ea87258e
-Ö
-Uttcn2_ETest-master/src/main/java/com/example/ttcn2etest/security/AuthTokenFilter.java,3\d\3d5ea8dcdebf3c7f80beda3d6e310d3bb096f9cf
 è
 _ttcn2_ETest-master/src/main/java/com/example/ttcn2etest/model/etity/ConsultingRegistration.java,d\e\de08b2a1b35576e1abc6c7e187fb5b5ec0370887
 ©
@@ -341,8 +337,6 @@ Q.idea/sonarlint/securityhotspotstore/8/1/8184311b57753b5e6139e183f50e6c3982e184
 Q.idea/sonarlint/securityhotspotstore/a/e/ae270f2d3da321d17fdad0ccae127c6cf00a016d,b\7\b78192063455a35dd600e616bcfd11c76f09d6e1
 Å
 Q.idea/sonarlint/securityhotspotstore/6/0/60b0956cae1d5e37b13a8b8fb50d44deac7c3bdc,0\4\0483ca7fc4205d9b580a64c7b83527c3b4b3bc5c
-Å
-Q.idea/sonarlint/securityhotspotstore/3/d/3d5ea8dcdebf3c7f80beda3d6e310d3bb096f9cf,d\a\da228009b656f874693f194b47da9585fb3725e4
 Å
 Q.idea/sonarlint/securityhotspotstore/a/9/a912ef0a525ba62e7be266b0a27596b0048f2925,8\d\8d817401cc6a3982219570f813429d639440c395
 Å
@@ -653,3 +647,27 @@ M
 ttcn2_ETest-master/Dockerfile,4\0\40ef87a874ccfe0e42dafac89f77cb3ce69ecca5
 T
 $ttcn2_ETest-master/system.properties,f\f\ff2245757d8087412ba142acd91c576c96b484f7
+ö
+jttcn2_ETest-master/src/main/java/com/example/ttcn2etest/mocktest/user_exam/request/UserResultsRequest.java,f\a\fa2391034b8f9d815cd865ca29021e22acb93182
+î
+dttcn2_ETest-master/src/main/java/com/example/ttcn2etest/mocktest/exam/repository/ExamRepository.java,7\7\7709bec0cbff1b027d42810078e59dfd858facbd
+†
+pttcn2_ETest-master/src/main/java/com/example/ttcn2etest/mocktest/user_exam/controller/UserResultsController.java,c\3\c32d7e798df448d3dc1dbe72c281a4ec67817f59
+ö
+jttcn2_ETest-master/src/main/java/com/example/ttcn2etest/mocktest/user_exam/service/UserResultsService.java,3\3\3339df87e22996523938c8386cbce3abcb58d3a4
+†
+pttcn2_ETest-master/src/main/java/com/example/ttcn2etest/mocktest/user_exam/request/FilterUserResultsRequest.java,6\9\69195b738bddfd81547c33f6cd72cbecd7e2cbea
+û
+nttcn2_ETest-master/src/main/java/com/example/ttcn2etest/mocktest/user_exam/service/UserResultsServiceIplm.java,9\e\9e59301c782c115ee6e3fbd1be6d537d6f42ba39
+¶
+vttcn2_ETest-master/src/main/java/com/example/ttcn2etest/mocktest/user_exam/repository/CustomUserResultsRepository.java,4\5\4551a052958078b958b16397324665391baae82c
+ì
+cttcn2_ETest-master/src/main/java/com/example/ttcn2etest/mocktest/user_exam/entity/UserResponse.java,0\5\05d3b8782348033f01a8769cbeee86b81c227fb6
+°
+qttcn2_ETest-master/src/main/java/com/example/ttcn2etest/mocktest/user_exam/request/FilterUserResponseRequest.java,1\d\1d00e4654d843c78c6fadc0d993fcf55abd8359a
+õ
+kttcn2_ETest-master/src/main/java/com/example/ttcn2etest/mocktest/user_exam/service/UserResponseService.java,6\b\6b703b88129a7b240e7474a5029dc90436205b60
+°
+qttcn2_ETest-master/src/main/java/com/example/ttcn2etest/mocktest/user_exam/controller/UserResponseController.java,1\6\16c121d11bc89cf33d4aee9ae8452b2dc70dff65
+ß
+wttcn2_ETest-master/src/main/java/com/example/ttcn2etest/mocktest/user_exam/repository/CustomUserResponseRepository.java,5\7\578508e65abd4a85d37b8458e3f5580dbd5cd08e

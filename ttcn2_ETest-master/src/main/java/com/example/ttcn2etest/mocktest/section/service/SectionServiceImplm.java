@@ -65,6 +65,9 @@ public class SectionServiceImplm implements SectionService {
             throw new RuntimeException("Id không tồn tại");
         }
         section.get().setTitle(request.getTitle());
+        section.get().setType(request.getType());
+        section.get().setDescription(request.getDescription());
+        section.get().setFile(request.getFile());
         sectionRepository.save(section.get());
         return section.get();
     }

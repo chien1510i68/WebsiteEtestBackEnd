@@ -15,10 +15,9 @@ import java.util.UUID;
 public class ExamDTO {
     private String id ;
     private String name ;
-
     private String type ;
     private long timeExam ;
-    private boolean free;
+    private Boolean isFree;
     @JsonFormat(pattern = "dd/MM/yyyy")
     private String createDate ;
 }

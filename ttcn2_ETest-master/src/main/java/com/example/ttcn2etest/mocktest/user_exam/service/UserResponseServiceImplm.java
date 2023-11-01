@@ -63,6 +63,8 @@ public class UserResponseServiceImplm implements UserResponseService {
                         (request.getUser_id() != 0L) ? userResponseRepository.findUserResponseByUserIdAndExam(request.getUser_id(), exam) : null;
 
 
+
+
         UserResponse response;
         if (!userResponse.isPresent()) {
             response = UserResponse.builder()
@@ -74,6 +76,10 @@ public class UserResponseServiceImplm implements UserResponseService {
                     .userId(request.getUser_id())
                     .responseUsers(new ArrayList<>())
                     .build();
+
+//            if(request.getUser_id()!= null){
+//                response.setUserId(response.getUserId());
+//            }
             userResponseRepository.save(response);
         } else {
             response = userResponse.get();

@@ -16,6 +16,7 @@ public class SectionDTO {
     private String title ;
     private String file ;
     private String description ;
+    private String type ;
     private List<QuestionDTO> questions;
 
 }

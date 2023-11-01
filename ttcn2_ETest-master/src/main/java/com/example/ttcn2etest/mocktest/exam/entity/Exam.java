@@ -27,7 +27,7 @@ public class Exam {
     private long timeExam;
     private Date createDate ;
 
-    private boolean isFree = false ;
+    private Boolean isFree  = false;
     @OneToMany(mappedBy = "exam"  , cascade = CascadeType.ALL)
     @JsonManagedReference
     private List<Section> sections ;
