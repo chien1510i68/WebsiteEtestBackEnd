@@ -685,3 +685,5 @@ dttcn2_ETest-master/src/main/java/com/example/ttcn2etest/mocktest/exam/controlle
 ^ttcn2_ETest-master/src/main/java/com/example/ttcn2etest/mocktest/question/dto/QuestionDTO.java,4\a\4a7f05d9580d0fb65b3263e05633c59e92b85799
 “
 cttcn2_ETest-master/src/main/java/com/example/ttcn2etest/mocktest/exam/service/ExamServiceImplm.java,d\4\d4c456c5c2b4ebb1969aab997ddd29d4fe45f5d6
+†
+Vttcn2_ETest-master/src/main/java/com/example/ttcn2etest/mocktest/exam/entity/Exam.java,b\7\b77ee1e67f40e506febb6a5084c6b5cc3b21b6ce
