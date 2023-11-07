@@ -639,8 +639,6 @@ Yttcn2_ETest-master/src/main/java/com/example/ttcn2etest/validator/PasswordAnnot
 Xttcn2_ETest-master/src/main/java/com/example/ttcn2etest/validator/PasswordValidator.java,7\b\7bff7020813a27678bda4db17fb47abf270513ba
 M
 ttcn2_ETest-master/Dockerfile,4\0\40ef87a874ccfe0e42dafac89f77cb3ce69ecca5
-T
-$ttcn2_ETest-master/system.properties,f\f\ff2245757d8087412ba142acd91c576c96b484f7
 š
 jttcn2_ETest-master/src/main/java/com/example/ttcn2etest/mocktest/user_exam/request/UserResultsRequest.java,f\a\fa2391034b8f9d815cd865ca29021e22acb93182
 ”

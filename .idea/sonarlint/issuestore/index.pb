@@ -639,8 +639,6 @@ Yttcn2_ETest-master/src/main/java/com/example/ttcn2etest/validator/UsernameAnnot
 Xttcn2_ETest-master/src/main/java/com/example/ttcn2etest/validator/UsernameValidator.java,4\c\4c12fa3ab4903c92d25d3b2ead99cf9c19725464
 M
 ttcn2_ETest-master/Dockerfile,4\0\40ef87a874ccfe0e42dafac89f77cb3ce69ecca5
-T
-$ttcn2_ETest-master/system.properties,f\f\ff2245757d8087412ba142acd91c576c96b484f7
 š
 jttcn2_ETest-master/src/main/java/com/example/ttcn2etest/mocktest/user_exam/request/UserResultsRequest.java,f\a\fa2391034b8f9d815cd865ca29021e22acb93182
 ”
