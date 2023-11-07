@@ -4,6 +4,7 @@ import com.example.ttcn2etest.mocktest.exam.dto.DetailExamDTO;
 import com.example.ttcn2etest.mocktest.exam.entity.Exam;
 import com.example.ttcn2etest.mocktest.exam.request.UserTestRequest;
 import com.example.ttcn2etest.mocktest.exam.service.ExamService;
+import com.example.ttcn2etest.mocktest.section.dto.SectionDTO;
 import com.example.ttcn2etest.mocktest.section.entity.Section;
 import com.example.ttcn2etest.mocktest.user_exam.request.UserResponseRequest;
 import com.example.ttcn2etest.mocktest.user_exam.request.UserResultsRequest;
@@ -40,7 +41,7 @@ public class ClientController {
     public ResponseEntity<?> findSections(@RequestBody UserTestRequest request) {
         BaseListItemResponse response = new BaseListItemResponse();
         response.setSuccess(true);
-        List<Section> sections = examService.findQuestionByType(request.getId(), request.getType());
+        List<SectionDTO> sections = examService.findQuestionByType(request.getId(), request.getType());
         response.setResult(sections, sections.size());
         return ResponseEntity.ok(response);
     }

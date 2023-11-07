@@ -5,6 +5,7 @@ import com.example.ttcn2etest.mocktest.exam.dto.ExamDTO;
 import com.example.ttcn2etest.mocktest.exam.entity.Exam;
 import com.example.ttcn2etest.mocktest.exam.request.ExamRequest;
 import com.example.ttcn2etest.mocktest.exam.service.ExamService;
+import com.example.ttcn2etest.mocktest.section.dto.SectionDTO;
 import com.example.ttcn2etest.mocktest.section.entity.Section;
 import com.example.ttcn2etest.mocktest.section.request.SectionRequest;
 import com.example.ttcn2etest.response.BaseItemResponse;
@@ -93,7 +94,7 @@ public class ExamController {
     public ResponseEntity<?> findSections(@PathVariable String id, @PathVariable String type) {
         BaseListItemResponse response = new BaseListItemResponse();
         response.setSuccess(true);
-        List<Section> sections = examService.findQuestionByType(id, type);
+        List<SectionDTO> sections = examService.findQuestionByType(id, type);
         response.setResult(sections, sections.size());
         return ResponseEntity.ok(response);
 

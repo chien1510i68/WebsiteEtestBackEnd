@@ -13,7 +13,7 @@ import java.util.List;
 public class QuestionDTO {
     private String id;
     private String content;
-    private Integer point;
+    private Float point;
     private String questionType;
     private String description;
     private List<Answer> listAnswer;
@@ -45,11 +45,11 @@ public class QuestionDTO {
         this.content = content;
     }
 
-    public Integer getPoint() {
+    public Float getPoint() {
         return point;
     }
 
-    public void setPoint(Integer point) {
+    public void setPoint(Float point) {
         this.point = point;
     }
 

@@ -4,6 +4,7 @@ import com.example.ttcn2etest.mocktest.exam.dto.DetailExamDTO;
 import com.example.ttcn2etest.mocktest.exam.dto.ExamDTO;
 import com.example.ttcn2etest.mocktest.exam.entity.Exam;
 import com.example.ttcn2etest.mocktest.exam.request.ExamRequest;
+import com.example.ttcn2etest.mocktest.section.dto.SectionDTO;
 import com.example.ttcn2etest.mocktest.section.entity.Section;
 import com.example.ttcn2etest.mocktest.section.request.SectionRequest;
 import org.springframework.http.ResponseEntity;
@@ -29,7 +30,7 @@ public interface ExamService {
 
     ExamDTO addSectionToExam(SectionRequest sectionRequest);
 
-    List<Section> findQuestionByType(String id , String type) ;
+    List<SectionDTO> findQuestionByType(String id , String type) ;
 
     Exam createExamByExcel(String path) ;
 

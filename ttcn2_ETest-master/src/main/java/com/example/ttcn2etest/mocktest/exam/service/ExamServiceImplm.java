@@ -6,8 +6,10 @@ import com.example.ttcn2etest.mocktest.exam.dto.ExamDTO;
 import com.example.ttcn2etest.mocktest.exam.entity.Exam;
 import com.example.ttcn2etest.mocktest.exam.repository.ExamRepository;
 import com.example.ttcn2etest.mocktest.exam.request.ExamRequest;
+import com.example.ttcn2etest.mocktest.question.dto.QuestionDTO;
 import com.example.ttcn2etest.mocktest.question.entity.Question;
 import com.example.ttcn2etest.mocktest.question.repository.QuestionRepository;
+import com.example.ttcn2etest.mocktest.section.dto.SectionDTO;
 import com.example.ttcn2etest.mocktest.section.entity.Section;
 import com.example.ttcn2etest.mocktest.section.repository.SectionRepository;
 import com.example.ttcn2etest.mocktest.section.request.SectionRequest;
@@ -165,15 +167,15 @@ public class ExamServiceImplm implements ExamService {
     }
 
     @Override
-    public List<Section> findQuestionByType(String id, String type) {
+    public List<SectionDTO> findQuestionByType(String id, String type) {
         Optional<Exam> exam = examRepository.findById(id);
-        List<Section> sections = exam.get().getSections();
+        List<SectionDTO> sections = exam.get().getSections().stream().map(i -> mapper.map(i , SectionDTO.class)).collect(Collectors.toList());
 
         long seed = System.nanoTime();
         Collections.shuffle(sections, new Random(seed));
 
-        for (Section section : sections) {
-            List<Question> questions = section.getQuestions();
+        for (SectionDTO section : sections) {
+            List<QuestionDTO> questions = section.getQuestions();
             Collections.shuffle(questions, new Random(seed));
         }
 

@@ -665,3 +665,25 @@ kttcn2_ETest-master/src/main/java/com/example/ttcn2etest/mocktest/user_exam/serv
 qttcn2_ETest-master/src/main/java/com/example/ttcn2etest/mocktest/user_exam/controller/UserResponseController.java,1\6\16c121d11bc89cf33d4aee9ae8452b2dc70dff65
 §
 wttcn2_ETest-master/src/main/java/com/example/ttcn2etest/mocktest/user_exam/repository/CustomUserResponseRepository.java,5\7\578508e65abd4a85d37b8458e3f5580dbd5cd08e
+ 
+pttcn2_ETest-master/src/main/java/com/example/ttcn2etest/mocktest/user_exam/service/UserResponseServiceImplm.java,3\e\3e8da666fdf7f79a5844945ed255bb16a9d833e6
+†
+Vttcn2_ETest-master/src/main/java/com/example/ttcn2etest/mocktest/exam/dto/ExamDTO.java,5\5\55c7e50f19c03a465b4ecb750ce0ad71d5f2ad21
+Ž
+^ttcn2_ETest-master/src/main/java/com/example/ttcn2etest/mocktest/exam/request/ExamRequest.java,9\1\91114b7a8cca77bc408a40a30873ae7888fc4327
+”
+dttcn2_ETest-master/src/main/java/com/example/ttcn2etest/mocktest/section/request/SectionRequest.java,e\2\e2c270d840973ca18823eb0a91433f15ff31b3af
+™
+ittcn2_ETest-master/src/main/java/com/example/ttcn2etest/mocktest/section/service/SectionServiceImplm.java,1\0\108c849c27fd13c92b69ba188da2efa893e000ab
+”
+dttcn2_ETest-master/src/main/java/com/example/ttcn2etest/mocktest/exam/controller/ExamController.java,d\e\deb6f5bd4ec99a0cb18a0bc92f9787ad94256775
+Ž
+^ttcn2_ETest-master/src/main/java/com/example/ttcn2etest/mocktest/exam/service/ExamService.java,7\5\75bdd97bb5d95ee1e090390e315d2d3ab5a5aab8
+Œ
+\ttcn2_ETest-master/src/main/java/com/example/ttcn2etest/mocktest/exam/dto/DetailExamDTO.java,8\c\8c0e5d73421c2afcc9b1f89a07eec5d6e34a41f3
+Œ
+\ttcn2_ETest-master/src/main/java/com/example/ttcn2etest/mocktest/section/dto/SectionDTO.java,c\7\c7cacd98202f2e3aa1542e66f454e30949db8d95
+Ž
+^ttcn2_ETest-master/src/main/java/com/example/ttcn2etest/mocktest/question/dto/QuestionDTO.java,4\a\4a7f05d9580d0fb65b3263e05633c59e92b85799
+“
+cttcn2_ETest-master/src/main/java/com/example/ttcn2etest/mocktest/exam/service/ExamServiceImplm.java,d\4\d4c456c5c2b4ebb1969aab997ddd29d4fe45f5d6

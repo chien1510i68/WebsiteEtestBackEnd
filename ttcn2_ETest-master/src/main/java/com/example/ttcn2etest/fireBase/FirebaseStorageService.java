@@ -25,16 +25,16 @@ public class FirebaseStorageService {
     private String fileBasePath;
 
     public String uploadFile(MultipartFile file) throws IOException {
-        InputStream inputStream = null;
-        if(StringUtils.isEmpty(fileBasePath)){
-            inputStream = new FileInputStream(new File(fileBasePath));
-        }else {
-            inputStream = getClass().getResourceAsStream("/edustar-231a3-firebase-adminsdk-eqjyb-0d04b578c1.json");
-        }
+//        InputStream inputStream = null;
+//        if(StringUtils.isEmpty(fileBasePath)){
+//            inputStream = new FileInputStream(new File(fileBasePath));
+//        }else {
+//            inputStream = getClass().getResourceAsStream("/edustar-231a3-firebase-adminsdk-eqjyb-0d04b578c1.json");
+//        }
 
-//        InputStream inputStream = new FileInputStream(new File(fileBasePath));
-//        InputStream serviceAccount = getClass().getResourceAsStream("/edustar-231a3-firebase-adminsdk-eqjyb-0d04b578c1.json");
-        GoogleCredentials credentials = GoogleCredentials.fromStream(inputStream);
+        InputStream serviceAccount = getClass().getResourceAsStream("/edustar-231a3-firebase-adminsdk-eqjyb-0d04b578c1.json");
+        GoogleCredentials credentials = GoogleCredentials.fromStream(serviceAccount);
+//        GoogleCredentials credentials = GoogleCredentials.fromStream(inputStream);
         StorageOptions storageOptions = StorageOptions.newBuilder().setCredentials(credentials).build();
         Storage storage = storageOptions.getService();
 

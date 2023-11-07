@@ -8,6 +8,7 @@ import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
@@ -34,7 +35,7 @@ public class Exam {
 
     @OneToMany (mappedBy = "exam" , cascade = CascadeType.ALL)
     @JsonManagedReference
-    private List<UserResponse> user_exam;
+    private List<UserResponse> user_exam = new ArrayList<>();
 
 
 
