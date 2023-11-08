@@ -1,20 +1,0 @@
-
-C
-java:S1452"&Remove usage of generic wildcard type.(µëË˜8–èÓ®¶1
-H
-java:S1452$"&Remove usage of generic wildcard type.(Åøíªşÿÿÿÿ8˜èÓ®¶1
-H
-java:S1452,"&Remove usage of generic wildcard type.(À—ºâüÿÿÿÿ8˜èÓ®¶1
-C
-java:S14524"&Remove usage of generic wildcard type.(§…Óˆ8™èÓ®¶1
-H
-java:S1452:"&Remove usage of generic wildcard type.(¯êË…ÿÿÿÿÿ8™èÓ®¶1
-v
-java:S1128"YRemove this unused import 'com.example.ttcn2etest.mocktest.user_exam.dto.UserResultsDTO'.(é¦’ç8šèÓ®¶1
-|
-java:S1128"ZRemove this unused import 'com.example.ttcn2etest.mocktest.user_exam.entity.UserResponse'.(İ Õ’úÿÿÿÿ8šèÓ®¶1
-o
-java:S1128
-"MRemove this unused import 'com.example.ttcn2etest.response.BaseItemResponse'.(Øã«´øÿÿÿÿ8šèÓ®¶1
-u
-java:S1128"SRemove this unused import 'org.springframework.beans.factory.annotation.Autowired'.(¡¸Îùÿÿÿÿ8šèÓ®¶1
