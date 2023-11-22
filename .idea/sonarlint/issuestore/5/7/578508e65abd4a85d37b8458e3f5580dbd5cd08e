@@ -1,0 +1,10 @@
+
+W
+java:S1118":Add a private constructor to hide the implicit public one.(•áÿ8Œû®¶1
+X	java:S125"<This block of commented-out lines of code should be removed.(ØßÊö8û®¶1
+C
+java:S1125""'Remove the unnecessary boolean literal.(ïÛı8‘û®¶1
+x
+java:S1128"[Remove this unused import 'com.example.ttcn2etest.mocktest.exam.repository.ExamRepository'.(ò½Ïİ8Ñê¯¶1
+]
+java:S1128	";Remove this unused import 'lombok.RequiredArgsConstructor'.(ÑØúøÿÿÿÿ8Ñê¯¶1

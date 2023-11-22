@@ -1,0 +1,32 @@
+
+h	java:S112Ş"FDefine and throw a dedicated exception instead of using a generic one.(£ñı«üÿÿÿÿ8Õˆ—ì¾1
+Š
+java:S1192Ç"lDefine a constant instead of duplicating this literal "KhÃ´ng tÃ¬m tháº¥y thÃ´ng tin khÃ¡ch hÃ ng!" 3 times.(Ô–ë 8Şˆ—ì¾1
+i
+java:S1192¬"KDefine a constant instead of duplicating this literal "        }
+" 6 times.(ÚÜƒ8Şˆ—ì¾1
+s
+java:S1192Ö"PDefine a constant instead of duplicating this literal "        </div>
+" 3 times.(ÆŒ©£ùÿÿÿÿ8ßˆ—ì¾1
+
+java:S1192³"\Define a constant instead of duplicating this literal "            padding: 20px;
+" 3 times.(ôÏÄÅıÿÿÿÿ8ßˆ—ì¾1
+|
+java:S1488¯"_Immediately return this expression instead of assigning it to the temporary variable "userDTO".(ä½£k8äˆ—ì¾1
+‚
+java:S1488Â"_Immediately return this expression instead of assigning it to the temporary variable "userDTO".(¨Í÷úÿÿÿÿ8äˆ—ì¾1
+|
+java:S1488Ù"_Immediately return this expression instead of assigning it to the temporary variable "userDTO".(ä½£k8åˆ—ì¾1
+|
+java:S1488ó"_Immediately return this expression instead of assigning it to the temporary variable "userDTO".(ä½£k8åˆ—ì¾1
+z
+java:S3655]"XCall "roleOptional.isPresent()" or "!roleOptional.isEmpty()" before accessing the value.(À‘À—ÿÿÿÿÿ8æŒ—ì¾1
+z
+java:S3655|"XCall "roleOptional.isPresent()" or "!roleOptional.isEmpty()" before accessing the value.(À‘À—ÿÿÿÿÿ8äŒ—ì¾1
+b
+java:S2583"DChange this condition so that it does not always evaluate to "false"(†‹šœ8æŒ—ì¾1
+X	java:S125w"<This block of commented-out lines of code should be removed.(ùØ”í8µ¯Ê¦¿1
+;
+java:S2119î"Save and re-use this "Random".(¼İÅf8£—ì¾1
+L
+java:S1144¸".Remove this unused private "buildRole" method.(ï›Ÿ8É—ì¾1

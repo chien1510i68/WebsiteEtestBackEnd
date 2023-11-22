@@ -1,0 +1,20 @@
+
+~
+java:S14887"cImmediately return this expression instead of assigning it to the temporary variable "downloadUrl".(’Ê÷„ûÿÿÿÿ
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(šÜõ
+t	java:S116"ZRename this field "EXPIRATION_TIME" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(À”“øÿÿÿÿ
+Q	java:S125"<This block of commented-out lines of code should be removed.(á«ö
+V	java:S125%"<This block of commented-out lines of code should be removed.(È‘Ó†üÿÿÿÿ
+Q	java:S125,"<This block of commented-out lines of code should be removed.(ÜÆˆƒ
+I
+java:S18741".Remove this use of "create"; it is deprecated.(ÙÒİ¸úÿÿÿÿ
+D
+java:S1874\".Remove this use of "create"; it is deprecated.(·ôÓş
+V
+java:S1128"ARemove this unused import 'org.springframework.util.StringUtils'.(Ğôÿ
+?
+java:S1128")Remove this unused import 'java.io.File'.(†Ğ¥Å
+F
+java:S1128"+Remove this unused import 'java.util.UUID'.(ÀãÄ£úÿÿÿÿ
+K
+java:S1144<"5Remove this unused private "getFileExtension" method.(àµÔô
