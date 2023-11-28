@@ -17,7 +17,11 @@ import java.util.UUID;
 public class UserResultsDTO {
     private String id;
 
-    private float point;
+    private float pointReading ;
+    private float pointListening ;
+    private float pointWriting ;
+    private float pointSpeaking ;
+    private float totalPoint ;
     private String comment;
     private String nameExam ;
     private long time ;

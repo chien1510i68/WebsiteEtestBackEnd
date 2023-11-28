@@ -39,4 +39,6 @@ public interface ExamService {
     ResponseEntity<?> readExamFromExcel(MultipartFile file);
 
     ResponseEntity<?> findExamByName (String name) ;
+
+    ResponseEntity<?> getExamByType (String type , boolean isFree ) ;
 }

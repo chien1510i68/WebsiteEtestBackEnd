@@ -24,7 +24,20 @@ public class UserResults {
 
     @Column(columnDefinition = "text")
     private String results ;
-    private float point ;
+    @Column(name = "resultsWriting")
+    private String resultsWriting ;
+
+
+    @Column(name =  "pointReading")
+    private float pointReading ;
+    @Column(name =  "pointListening")
+    private float pointListening ;
+    @Column(name =  "pointWriting")
+    private float pointWriting ;
+    @Column(name =  "pointSpeaking")
+    private float pointSpeaking ;
+    @Column(name =  "totalPoint")
+    private float totalPoint ;
     @Column(columnDefinition = "text")
     private String comment ;
     @ManyToOne

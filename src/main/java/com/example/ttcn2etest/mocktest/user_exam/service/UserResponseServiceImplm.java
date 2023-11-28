@@ -63,8 +63,6 @@ public class UserResponseServiceImplm implements UserResponseService {
                         (request.getUser_id() != 0L) ? userResponseRepository.findUserResponseByUserIdAndExam(request.getUser_id(), exam) : null;
 
 
-
-
         UserResponse response;
         if (!userResponse.isPresent()) {
             response = UserResponse.builder()
@@ -91,14 +89,26 @@ public class UserResponseServiceImplm implements UserResponseService {
             userResponseRepository.save(response);
         }
 
+        List<UserResultsRequest> userResultsRequests = new ArrayList<>(request.getResponsereading());
+        userResultsRequests.addAll(request.getResponselistening());
+
+
+        float pointListening = calculatorPoint(request.getResponselistening());
+        float pointReading = calculatorPoint(request.getResponsereading());
+        float total = pointListening + pointReading;
         UserResults userResults1 = UserResults.builder()
                 .userResponse(response)
                 .id(UUID.randomUUID().toString())
                 .createDate(new Date())
-                .results(convertUserResultsListToJsonString(request.getResponseUsers()))
+                .pointReading(pointListening)
+                .pointListening(pointReading)
+                .results(convertUserResultsListToJsonString(userResultsRequests))
+                .resultsWriting(convertUserResultsListToJsonString(request.getResponsewriting()))
+                .totalPoint(total)
                 .build();
-        calPoint(request, userResults1);
-        userResults1.setComment(commentResults(userResults1.getPoint()));
+
+
+        userResults1.setComment(commentResults(userResults1.getTotalPoint()));
         userResultsRepository.save(userResults1);
 
         response.getResponseUsers().add(userResults1); // Thêm userResults1 vào danh sách đã khởi tạo
@@ -145,12 +155,15 @@ public class UserResponseServiceImplm implements UserResponseService {
         }
     }
 
-    public void calPoint(UserResponseRequest request, UserResults userResults) {
-        for (UserResultsRequest resultsRequest : request.getResponseUsers()) {
+
+    public float calculatorPoint(List<UserResultsRequest> userResultsRequests) {
+        float total = 0;
+        for (UserResultsRequest resultsRequest : userResultsRequests) {
             Optional<Question> question = questionRepository.findById(resultsRequest.getQuestionId());
             if (question.isPresent() && resultsRequest.getAnswerKey() != null && question.get().getChoiceCorrect().containsAll(resultsRequest.getAnswerKey()))
-                userResults.setPoint(userResults.getPoint() + question.get().getPoint());
+                return total += question.get().getPoint();
         }
+        return total;
     }
 
 

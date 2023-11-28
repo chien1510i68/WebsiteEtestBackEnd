@@ -17,6 +17,11 @@ public class UserResponseRequest {
 
     private int maxCount ;
 
-    List<UserResultsRequest> responseUsers ;
+    List<UserResultsRequest> responselistening ;
+    List<UserResultsRequest> responsereading ;
+    List<UserResultsRequest> responsespeaking ;
+    List<UserResultsRequest> responsewriting ;
+
+
 //    private String responseUsers ;
 }

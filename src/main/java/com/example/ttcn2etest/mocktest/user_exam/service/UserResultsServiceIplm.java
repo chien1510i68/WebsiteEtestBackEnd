@@ -67,7 +67,10 @@ public class UserResultsServiceIplm implements UserResultsService {
         baseItemResponse.setSuccess();
         baseItemResponse.setData(UserResultsDTO.builder()
                 .comment(userResults.getComment())
-                .point(userResults.getPoint())
+                .pointListening(userResults.getPointListening())
+                        .pointReading(userResults.getPointReading())
+                        .pointSpeaking(userResults.getPointSpeaking())
+                        .pointWriting(userResults.getPointWriting())
                 .id(userResults.getId())
                 .detailResults(detailResults)
                 .build());
@@ -173,7 +176,7 @@ public class UserResultsServiceIplm implements UserResultsService {
             return ResponseEntity.ok().body(listItemResponse);
         }
         if (request.isSortHighToLow()) {
-            userResultsDTOS = userResults.stream().sorted(Comparator.comparing(UserResults::getPoint).reversed())
+            userResultsDTOS = userResults.stream().sorted(Comparator.comparing(UserResults::getTotalPoint).reversed())
                     .map(i -> mapper.map(i, UserResultsDTO.class)).collect(Collectors.toList());
             listItemResponse.setResult(userResultsDTOS , userResultsDTOS.size());
             return ResponseEntity.ok().body(listItemResponse);
