@@ -80,14 +80,14 @@ public class ExamServiceImplm implements ExamService {
         }
         exam.get().setTimeExam(request.getTimeExam());
         exam.get().setName(request.getName());
-        if(request.getIsFree()){
+        if (request.getIsFree()) {
             exam.get().setIsFree(true);
-        }else {
+        } else {
             exam.get().setIsFree(false);
         }
         exam.get().setType(request.getType());
 
-        return mapper.map(examRepository.saveAndFlush(exam.get()) , ExamDTO.class);
+        return mapper.map(examRepository.saveAndFlush(exam.get()), ExamDTO.class);
     }
 
     @Override
@@ -169,7 +169,7 @@ public class ExamServiceImplm implements ExamService {
     @Override
     public List<SectionDTO> findQuestionByType(String id, String type) {
         Optional<Exam> exam = examRepository.findById(id);
-        List<SectionDTO> sections = exam.get().getSections().stream().map(i -> mapper.map(i , SectionDTO.class)).collect(Collectors.toList());
+        List<SectionDTO> sections = exam.get().getSections().stream().map(i -> mapper.map(i, SectionDTO.class)).collect(Collectors.toList());
 
         long seed = System.nanoTime();
         Collections.shuffle(sections, new Random(seed));
@@ -658,8 +658,6 @@ public class ExamServiceImplm implements ExamService {
                     questionList.add(question);
                     currentSection.setQuestions(questionList);
                 }
-
-
             }
 
 
@@ -689,11 +687,29 @@ public class ExamServiceImplm implements ExamService {
 
     @Override
     public ResponseEntity<?> findExamByName(String name) {
-        List<DetailExamDTO> detailExamDTOS = examRepository.listExamByName(name).stream().map(i -> mapper.map(i , DetailExamDTO.class)).collect(Collectors.toList());
-       BaseListItemResponse response = new BaseListItemResponse() ;
-       response.setSuccess();
-       response.setResult(detailExamDTOS , detailExamDTOS.size());
+        List<DetailExamDTO> detailExamDTOS = examRepository.listExamByName(name).stream().map(i -> mapper.map(i, DetailExamDTO.class)).collect(Collectors.toList());
+        BaseListItemResponse response = new BaseListItemResponse();
+        response.setSuccess();
+        response.setResult(detailExamDTOS, detailExamDTOS.size());
 
+        return ResponseEntity.ok(response);
+    }
+
+    @Override
+    public ResponseEntity<?> getExamByType(String type, boolean isFree) {
+        List<ExamDTO> exams = new ArrayList<>();
+        if (isFree == false) {
+            exams = examRepository.findExamsByType(type).stream()
+                    .map(i -> mapper.map(i, ExamDTO.class)).collect(Collectors.toList());
+        } else {
+            exams = examRepository.findExamsByType(type).stream()
+                    .filter(i -> i.getIsFree() == true)
+                    .map(i -> mapper.map(i, ExamDTO.class)).collect(Collectors.toList());
+        }
+
+        BaseListItemResponse<ExamDTO> response = new BaseListItemResponse<>();
+        response.setSuccess(true);
+        response.setResult(exams, exams.size());
         return ResponseEntity.ok(response);
     }
 }

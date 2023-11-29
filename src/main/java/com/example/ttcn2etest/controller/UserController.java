@@ -124,7 +124,7 @@ public class UserController extends BaseController {
     }
 
     @PostMapping("/change/password")
-    @PreAuthorize("hasAnyAuthority('CUSTOMER')")
+    @PreAuthorize("hasAnyAuthority('CUSTOMER','ADMIN','STAFF')")
     public ResponseEntity<?> changePassword(@RequestBody ChangePasswordRequest request){
         userService.changePassword(request);
         return buildItemResponse("Mật khẩu đã được thay đổi thành công!");

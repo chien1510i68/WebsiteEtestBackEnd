@@ -13,5 +13,6 @@ public interface ExamRepository extends JpaRepository<Exam, String> {
     @Query("SELECT e FROM Exam e WHERE UPPER(e.name) LIKE UPPER(CONCAT('%', :name, '%'))")
     List<Exam> listExamByName(String name);
 
+    List<Exam> findExamsByType(String type);
 
 }

@@ -13,6 +13,7 @@ import com.example.ttcn2etest.mocktest.user_exam.service.UserResultsService;
 import com.example.ttcn2etest.response.BaseListItemResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -49,5 +50,9 @@ public class ClientController {
     @PostMapping("response/add")
     public ResponseEntity<?> addUserResponse(@RequestBody UserResponseRequest request) {
         return userResponseService.addUserResponse(request);
+    }
+    @GetMapping("exam/type/{type}/{isFree}")
+    public ResponseEntity<?> getAllExamByType (@PathVariable String type , @PathVariable boolean isFree){
+        return ResponseEntity.ok(examService.getExamByType(type , isFree));
     }
 }
