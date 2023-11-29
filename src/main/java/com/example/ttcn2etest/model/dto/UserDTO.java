@@ -19,7 +19,7 @@ public class UserDTO {
     private Long userId;
     private String username;
     private String name;
-    private String password;
+//    private String password;
     @JsonFormat(pattern = DateTimeConstant.DATE_FORMAT, timezone = DateTimeConstant.TIME_ZONE)
     private Date dateOfBirth;
     private String phone;

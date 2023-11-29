@@ -116,7 +116,7 @@ public class UserServiceImpl implements UserService {
                 user.setDateOfBirth(MyUtils.convertDateFromString(request.getDateOfBirth(), DateTimeConstant.DATE_FORMAT));
                 user.setEmail(request.getEmail());
                 user.setVerified(request.isVerified());
-                user.setPassword(encoder.encode(request.getPassword()));
+//                user.setPassword(encoder.encode(request.getPassword()));
                 user.setPhone(request.getPhone());
                 user.setAvatar(request.getAvatar());
                 user.setAddress(request.getAddress());

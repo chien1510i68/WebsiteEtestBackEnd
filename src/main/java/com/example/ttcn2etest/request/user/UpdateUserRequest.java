@@ -19,10 +19,10 @@ public class UpdateUserRequest {
     @Size(min = 6, max = 100, message = "Tên người dùng phải có ít nhất 6, nhiều nhất 100 kí tự!")
     @NameAnnotation
     private String name;
-    @NotBlank(message = "Mật khẩu không được để trống!")
-    @Size(min = 6, message = "Mật khẩu phải có ít nhất 6 ký tự!")
-    @PasswordAnnotation
-    private String password;
+//    @NotBlank(message = "Mật khẩu không được để trống!")
+//    @Size(min = 6, message = "Mật khẩu phải có ít nhất 6 ký tự!")
+//    @PasswordAnnotation
+//    private String password;
     @NotBlank(message = "Ngày sinh không được để trống!")
     @DateValidateAnnotation(message = "Định dạng ngày tháng phải là dd/mm/yyyy")
     private String dateOfBirth;
