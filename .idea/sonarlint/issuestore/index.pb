@@ -3,8 +3,6 @@ S
 #.idea/sonarlint/issuestore/index.pb,9\f\9fe84ebb15faf917b7def6236dba604453cc61e0
 ]
 -.idea/sonarlint/securityhotspotstore/index.pb,8\8\88a9255124c95bdc913197c120a8d560edc59c8e
-s
-Csrc/main/java/com/example/ttcn2etest/mocktest/ClientController.java,e\a\ea9028599b51cbd7beeacdbc38707fbf41220863
 l
 <src/main/java/com/example/ttcn2etest/config/EmailConfig.java,e\2\e2f02150979067505c24b450f4a6103f337dbe78
 7
@@ -22,8 +20,6 @@ v
 Fsrc/main/java/com/example/ttcn2etest/config/PasswordEncoderConfig.java,0\9\09af357320025734d6f0edaa73802df04ef4d777
 y
 Isrc/main/java/com/example/ttcn2etest/fireBase/FirebaseStorageService.java,7\1\71a7f7fac0bbdf1e73ac05f36c1982fbb56080a3
-
-Qsrc/main/java/com/example/ttcn2etest/mocktest/exam/controller/ExamController.java,0\c\0cb7e0dffef3b4b14afa418641679a25c660a18b
 {
 Ksrc/main/java/com/example/ttcn2etest/mocktest/exam/service/ExamService.java,a\e\ae33a607c655ff0094be998e1dae5b9127a8ea6c
 €

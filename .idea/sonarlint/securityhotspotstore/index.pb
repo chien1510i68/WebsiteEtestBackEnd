@@ -3,8 +3,6 @@ S
 #.idea/sonarlint/issuestore/index.pb,9\f\9fe84ebb15faf917b7def6236dba604453cc61e0
 ]
 -.idea/sonarlint/securityhotspotstore/index.pb,8\8\88a9255124c95bdc913197c120a8d560edc59c8e
-s
-Csrc/main/java/com/example/ttcn2etest/mocktest/ClientController.java,e\a\ea9028599b51cbd7beeacdbc38707fbf41220863
 l
 <src/main/java/com/example/ttcn2etest/config/EmailConfig.java,e\2\e2f02150979067505c24b450f4a6103f337dbe78
 7
@@ -14,8 +12,6 @@ l
 Dockerfile,6\6\6651ddff6eb82c840ced7c1dddee15c6e1913dd4
 s
 Csrc/main/java/com/example/ttcn2etest/controller/AuthController.java,9\a\9a6b9f153283e2b1b39fe27b8c698afd31f8b8fb
-
-Qsrc/main/java/com/example/ttcn2etest/mocktest/exam/controller/ExamController.java,0\c\0cb7e0dffef3b4b14afa418641679a25c660a18b
 p
 @src/main/java/com/example/ttcn2etest/config/ModelMapperBean.java,8\a\8a6065330422f437f7dd51e043ebe05cfcd874be
 y
