@@ -125,6 +125,12 @@ public class ExamController {
 //        return ResponseEntity.ok().body(name);
 
     }
+    @GetMapping("detail/{examId}")
+    @PreAuthorize("hasAnyAuthority('ADMIN' ,'TEACHER' ,'STAFF')")
+    public ResponseEntity<?> getDetailExamByExamId (@PathVariable String examId){
+        return ResponseEntity.ok(examService.getDetailByExamId(examId));
+    }
+
 
 
 

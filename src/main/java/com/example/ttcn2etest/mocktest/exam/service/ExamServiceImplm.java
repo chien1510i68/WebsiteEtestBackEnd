@@ -712,4 +712,14 @@ public class ExamServiceImplm implements ExamService {
         response.setResult(exams, exams.size());
         return ResponseEntity.ok(response);
     }
+
+    @Override
+    public ResponseEntity<?> getDetailByExamId(String examId) {
+        Exam exam = examRepository.findExamById(examId);
+        DetailExamDTO detailExamDTO = mapper.map(exam , DetailExamDTO.class);
+        BaseItemResponse response = new BaseItemResponse<>();
+        response.setSuccess(true);
+        response.setData(detailExamDTO);
+        return ResponseEntity.ok().body(response);
+    }
 }
