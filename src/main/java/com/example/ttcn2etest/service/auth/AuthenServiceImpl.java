@@ -9,8 +9,10 @@ import com.example.ttcn2etest.repository.user.UserRepository;
 import com.example.ttcn2etest.request.auth.LoginRequest;
 import com.example.ttcn2etest.request.auth.RegisterRequest;
 import com.example.ttcn2etest.response.LoginResponse;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
@@ -21,6 +23,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
+@Slf4j
 public class AuthenServiceImpl implements AuthenService {
     private final AuthenticationManager authenticationManager;
     private final UserRepository userRepository;
@@ -40,25 +43,32 @@ public class AuthenServiceImpl implements AuthenService {
 
     @Override
     public LoginResponse authenticateUser(LoginRequest loginRequest) {
-        Authentication authentication = authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPassword()));
-        SecurityContextHolder.getContext().setAuthentication(authentication);
+        try{
+            Authentication authentication = authenticationManager.authenticate(
+                    new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPassword()));
+            SecurityContextHolder.getContext().setAuthentication(authentication);
 
-        String jwt = jwtTokenProvider.generateTokenWithAuthorities(authentication);
+            String jwt = jwtTokenProvider.generateTokenWithAuthorities(authentication);
 
-        UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
-        List<String> roles = userDetails.getAuthorities().stream()
-                .map(GrantedAuthority::getAuthority)
-                .toList();
+            UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
+            List<String> roles = userDetails.getAuthorities().stream()
+                    .map(GrantedAuthority::getAuthority)
+                    .toList();
+
+            return new LoginResponse(jwt,
+                    userDetails.getId(),
+                    userDetails.getName(),
+                    userDetails.getUsername(),
+                    userDetails.getPhone(),
+                    userDetails.getEmail(),
+                    roles);
+        }catch (BadCredentialsException e){
+            throw new MyCustomException("Sai mật khẩu!");
+        }catch (Exception e){
+            throw new MyCustomException("Thông tin đăng nhập sai!");
+        }
 
 
-        return new LoginResponse(jwt,
-                userDetails.getId(),
-                userDetails.getName(),
-                userDetails.getUsername(),
-                userDetails.getPhone(),
-                userDetails.getEmail(),
-                roles);
     }
 
     @Override
