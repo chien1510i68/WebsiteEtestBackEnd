@@ -38,6 +38,8 @@ public class ClientController {
         return ResponseEntity.ok(exam);
     }
 
+    @GetMapping("examDetail/{id}")
+
     @PostMapping("exam/detail")
     public ResponseEntity<?> findSections(@RequestBody UserTestRequest request) {
         BaseListItemResponse response = new BaseListItemResponse();

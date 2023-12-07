@@ -8,6 +8,7 @@ import com.example.ttcn2etest.importFileExcel.thread.WriteError;
 import com.example.ttcn2etest.model.etity.User;
 import com.example.ttcn2etest.repository.user.UserRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.beans.factory.annotation.Value;
@@ -23,6 +24,7 @@ import java.util.concurrent.*;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class ExcelService implements ExcelServiceImpl {
     private final UserRepository userRepository;
     public static final int MAX_THREADS = 3;
@@ -129,6 +131,7 @@ public class ExcelService implements ExcelServiceImpl {
         catch (IOException e) {
             throw new MyCustomException("Có lỗi xảy ra trong quá trình nhập/ghi file!");
         }        catch (Exception e){
+            log.error("Loi import file KH: ",e.getMessage());
             throw new MyCustomException("Có lỗi xảy ra trong quá trình nhập dữ liệu khách hàng!");
         }
     }

@@ -35,9 +35,9 @@ public class CustomUserResultsRepository {
 
             }
             if(request.isHighToLow()) {
-                query.orderBy(criteriaBuilder.desc(root.get("point")));
+                query.orderBy(criteriaBuilder.desc(root.get("totalPoint")));
             }else {
-                query.orderBy(criteriaBuilder.asc(root.get("point")));
+                query.orderBy(criteriaBuilder.asc(root.get("totalPoint")));
             }
 
             if(StringUtils.hasText(request.getUserResponseId())){

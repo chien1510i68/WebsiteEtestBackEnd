@@ -12,8 +12,8 @@ public class UpdateDisplayRequest {
     @NotBlank(message = "Mô tả không được để trống!")
     @Size(max = 500)
     private String description;
-    @NotBlank(message = "Ảnh không được để trống!")
-    @Size(max = 2000, message = "Link ảnh có độ dài từ 0-2000 ký tự!")
+//    @NotBlank(message = "Ảnh không được để trống!")
+//    @Size(max = 2000, message = "Link ảnh có độ dài từ 0-2000 ký tự!")
     private String image;
     @NotBlank(message = "Vị trí không được để trống!")
     @Size(max = 100)

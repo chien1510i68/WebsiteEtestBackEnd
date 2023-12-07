@@ -43,4 +43,6 @@ public interface ExamService {
     ResponseEntity<?> getExamByType (String type , boolean isFree ) ;
 
     ResponseEntity<?> getDetailByExamId (String examId);
+
+    ResponseEntity<?> getExamById(String id );
 }

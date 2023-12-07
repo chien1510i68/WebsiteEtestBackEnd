@@ -722,4 +722,9 @@ public class ExamServiceImplm implements ExamService {
         response.setData(detailExamDTO);
         return ResponseEntity.ok().body(response);
     }
+
+    @Override
+    public ResponseEntity<?> getExamById(String id) {
+        return null;
+    }
 }
