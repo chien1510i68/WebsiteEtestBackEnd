@@ -8,6 +8,7 @@ import com.example.ttcn2etest.importFileExcel.thread.WriteError;
 import com.example.ttcn2etest.model.etity.User;
 import com.example.ttcn2etest.repository.user.UserRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.beans.factory.annotation.Value;
@@ -23,10 +24,19 @@ import java.util.concurrent.*;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class ExcelService implements ExcelServiceImpl {
     private final UserRepository userRepository;
     public static final int MAX_THREADS = 3;
-    public static final String ERROR_USER_FILE = "src/main/java/com/example/ttcn2etest/upload/loi_nhap_du_lieu.xlsx";
+    //cach file doc khi ko build docker
+    //    public static final String ERROR_USER_FILE = "src/main/java/com/example/ttcn2etest/upload/loi_nhap_du_lieu.xlsx";
+
+    //file doc de ngoài src
+    public static final String ERROR_USER_FILE = "loi_nhap_du_lieu.xlsx";
+
+    //cach cau hinh trong porperties dung khi call local
+//    @Value("${error.file.path}")
+//    public  String ERROR_USER_FILE;
     @Value("${firebase.storage.bucket}")
     private String bucketName;
 
@@ -121,14 +131,14 @@ public class ExcelService implements ExcelServiceImpl {
 
             return firebaseStorageService.uploadFileExcel(ERROR_USER_FILE, bucketName);
         } catch (ArrayIndexOutOfBoundsException e) {
+            log.error("Lỗi dữ liệu truyền vào : {}",e.getMessage());
             throw new MyCustomException("Dữ liệu truyền vào không đúng, kiểm tra lại các trường theo template import user đã cung cấp!");
         }
-//        catch (FileNotFoundException e) {
-//            throw new RuntimeException(e);
-//        }
         catch (IOException e) {
+            log.error("Lỗi đường dẫn truyền file : {}",e.getMessage());
             throw new MyCustomException("Có lỗi xảy ra trong quá trình nhập/ghi file!");
         }        catch (Exception e){
+            log.error("Lỗi: {}",e.getMessage());
             throw new MyCustomException("Có lỗi xảy ra trong quá trình nhập dữ liệu khách hàng!");
         }
     }
