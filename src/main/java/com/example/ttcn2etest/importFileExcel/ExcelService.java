@@ -28,7 +28,15 @@ import java.util.concurrent.*;
 public class ExcelService implements ExcelServiceImpl {
     private final UserRepository userRepository;
     public static final int MAX_THREADS = 3;
-    public static final String ERROR_USER_FILE = "src/main/java/com/example/ttcn2etest/upload/loi_nhap_du_lieu.xlsx";
+    //cach file doc khi ko build docker
+    //    public static final String ERROR_USER_FILE = "src/main/java/com/example/ttcn2etest/upload/loi_nhap_du_lieu.xlsx";
+
+    //file doc de ngoài src
+    public static final String ERROR_USER_FILE = "loi_nhap_du_lieu.xlsx";
+
+    //cach cau hinh trong porperties dung khi call local
+//    @Value("${error.file.path}")
+//    public  String ERROR_USER_FILE;
     @Value("${firebase.storage.bucket}")
     private String bucketName;
 
@@ -123,15 +131,18 @@ public class ExcelService implements ExcelServiceImpl {
 
             return firebaseStorageService.uploadFileExcel(ERROR_USER_FILE, bucketName);
         } catch (ArrayIndexOutOfBoundsException e) {
+            log.error("Lỗi dữ liệu truyền vào : {}",e.getMessage());
             throw new MyCustomException("Dữ liệu truyền vào không đúng, kiểm tra lại các trường theo template import user đã cung cấp!");
         }
-//        catch (FileNotFoundException e) {
-//            throw new RuntimeException(e);
-//        }
         catch (IOException e) {
+            log.error("Lỗi đường dẫn truyền file : {}",e.getMessage());
             throw new MyCustomException("Có lỗi xảy ra trong quá trình nhập/ghi file!");
         }        catch (Exception e){
+<<<<<<< HEAD
             log.error("Loi import file KH: ",e.getMessage());
+=======
+            log.error("Lỗi: {}",e.getMessage());
+>>>>>>> a38fc817ecbd17c7aa91c409524bdf9c7382cd34
             throw new MyCustomException("Có lỗi xảy ra trong quá trình nhập dữ liệu khách hàng!");
         }
     }
