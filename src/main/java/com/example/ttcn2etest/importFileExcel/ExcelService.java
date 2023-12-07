@@ -131,18 +131,14 @@ public class ExcelService implements ExcelServiceImpl {
 
             return firebaseStorageService.uploadFileExcel(ERROR_USER_FILE, bucketName);
         } catch (ArrayIndexOutOfBoundsException e) {
-            log.error("Lỗi dữ liệu truyền vào : {}",e.getMessage());
+            log.error("Lỗi dữ liệu truyền vào : {}", e.getMessage());
             throw new MyCustomException("Dữ liệu truyền vào không đúng, kiểm tra lại các trường theo template import user đã cung cấp!");
-        }
-        catch (IOException e) {
-            log.error("Lỗi đường dẫn truyền file : {}",e.getMessage());
+        } catch (IOException e) {
+            log.error("Lỗi đường dẫn truyền file : {}", e.getMessage());
             throw new MyCustomException("Có lỗi xảy ra trong quá trình nhập/ghi file!");
-        }        catch (Exception e){
-<<<<<<< HEAD
-            log.error("Loi import file KH: ",e.getMessage());
-=======
-            log.error("Lỗi: {}",e.getMessage());
->>>>>>> a38fc817ecbd17c7aa91c409524bdf9c7382cd34
+        } catch (Exception e) {
+            log.error("Lỗi: {}", e.getMessage());
+
             throw new MyCustomException("Có lỗi xảy ra trong quá trình nhập dữ liệu khách hàng!");
         }
     }
