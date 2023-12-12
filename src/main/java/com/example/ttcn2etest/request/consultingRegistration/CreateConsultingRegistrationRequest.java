@@ -16,7 +16,7 @@ import static com.example.ttcn2etest.model.etity.ConsultingRegistration.Status.W
 @Data
 public class CreateConsultingRegistrationRequest {
     @NotBlank(message = "Họ và tên không được để trống!")
-    @Size(max = 100)
+    @Size(min = 6, max = 100, message = "Họ và tên phải có ít nhất 6, nhiều nhất 100 kí tự!")
     @NameAnnotation
     private String name;
 

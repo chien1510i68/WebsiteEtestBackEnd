@@ -274,6 +274,9 @@ public class UserServiceImpl implements UserService {
             throw new MyCustomException("Mật khẩu không khớp nhau!");
         }
 
+        if(encoder.matches(request.getNewPassword(), user.getPassword()))
+            throw new MyCustomException("Mật khẩu mới phải khác mật khẩu cũ!");
+
         user.setPassword(encoder.encode(request.getNewPassword()));
         userRepository.saveAndFlush(user);
 
