@@ -13,7 +13,7 @@ import java.util.List;
 public class UpdateUserRequest {
     @NotBlank(message = "User name nguời dùng không được để trống!")
     @Size(min = 6, max = 100, message = "User name người dùng phải có ít nhất 6, nhiều nhất 100 kí tự!")
-    @UsernameAnnotation(message = "Username không được chứa khoảng trắng hoặc các ký tự đặc biệt!")
+    @UsernameAnnotation
     private String username;
     @NotBlank(message = "Họ và tên nguời dùng không được để trống!")
     @Size(min = 6, max = 100, message = "Tên người dùng phải có ít nhất 6, nhiều nhất 100 kí tự!")
