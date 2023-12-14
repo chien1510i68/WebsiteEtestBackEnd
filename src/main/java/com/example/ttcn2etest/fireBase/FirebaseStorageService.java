@@ -25,25 +25,15 @@ public class FirebaseStorageService {
     private String fileBasePath;
 
     public String uploadFile(MultipartFile file) throws IOException {
-//        InputStream inputStream = null;
-//        if(StringUtils.isEmpty(fileBasePath)){
-//            inputStream = new FileInputStream(new File(fileBasePath));
-//        }else {
-//            inputStream = getClass().getResourceAsStream("/edustar-231a3-firebase-adminsdk-eqjyb-0d04b578c1.json");
-//        }
+
 
         InputStream serviceAccount = getClass().getResourceAsStream("/edustar-231a3-firebase-adminsdk-eqjyb-0d04b578c1.json");
         GoogleCredentials credentials = GoogleCredentials.fromStream(serviceAccount);
-//        GoogleCredentials credentials = GoogleCredentials.fromStream(inputStream);
         StorageOptions storageOptions = StorageOptions.newBuilder().setCredentials(credentials).build();
         Storage storage = storageOptions.getService();
 
         String originalFilename = file.getOriginalFilename();
 
-        // Generate a unique filename
-//        String filename = UUID.randomUUID().toString() + getFileExtension(originalFilename);
-
-        //Lấy tên file là tên gốc mình upload
         String filename = originalFilename;
 
         Blob blob = storage.create(BlobInfo.newBuilder(bucketName, filename)

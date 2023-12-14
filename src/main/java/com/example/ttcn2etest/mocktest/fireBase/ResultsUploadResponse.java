@@ -5,6 +5,6 @@ import lombok.Data;
 
 @Data
 @Builder
-public class FirebaseUploadResponse {
+public class ResultsUploadResponse {
     private String downloadUrl;
 }

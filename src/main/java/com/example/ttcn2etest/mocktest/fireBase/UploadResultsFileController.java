@@ -13,9 +13,9 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
 
 @RestController
-@RequestMapping("/results/file")
+@RequestMapping("client/results/file")
 @RequiredArgsConstructor
-public class FireBaseStorageController extends BaseController {
+public class UploadResultsFileController extends BaseController {
     private final UploadFileService uploadFileService;
 
 
@@ -24,7 +24,7 @@ public class FireBaseStorageController extends BaseController {
     public ResponseEntity<?> uploadFile(@Valid @RequestPart("file") MultipartFile file) {
         try {
             String downloadUrl = uploadFileService.uploadFile(file);
-            FirebaseUploadResponse response = new FirebaseUploadResponse(downloadUrl);
+            ResultsUploadResponse response = new ResultsUploadResponse(downloadUrl);
             return buildItemResponse(response);
         } catch (IOException e) {
             return buildResponse();
