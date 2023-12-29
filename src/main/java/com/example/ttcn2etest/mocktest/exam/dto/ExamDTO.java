@@ -16,7 +16,7 @@ public class ExamDTO {
     private String id ;
     private String name ;
     private String type ;
-    private long timeExam ;
+    private String timeExam ;
     private Boolean isFree;
     @JsonFormat(pattern = "dd/MM/yyyy")
     private String createDate ;

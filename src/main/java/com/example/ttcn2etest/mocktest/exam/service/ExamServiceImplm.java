@@ -240,8 +240,8 @@ public class ExamServiceImplm implements ExamService {
                     exam.setName(examNameCell.getStringCellValue());
                     exam.setType(typeExam.getStringCellValue());
                     exam.setCreateDate(new Date());
-                    exam.setTimeExam((long) timeExam.getNumericCellValue());
-                    exam.setTimeExam((long) timeExam.getNumericCellValue());
+                    exam.setTimeExam(timeExam.getStringCellValue());
+//                    exam.setTimeExam((long) timeExam.getNumericCellValue());
                     currentExamName = examNameCell.getStringCellValue();
 //                    exam.setFree(isFreeCell.getBooleanCellValue());
                     examRepository.save(exam);
@@ -542,7 +542,7 @@ public class ExamServiceImplm implements ExamService {
 
                 Cell examNameCell = row.getCell(0);
                 Cell typeExam = row.getCell(1);
-                Cell timeExam = row.getCell(2);
+                Cell isMiniTest = row.getCell(2);
 
                 Cell isFreeCell = row.getCell(18);
 
@@ -569,8 +569,8 @@ public class ExamServiceImplm implements ExamService {
                     exam.setName(examNameCell.getStringCellValue());
                     exam.setType(typeExam.getStringCellValue());
                     exam.setCreateDate(new Date());
-                    exam.setTimeExam((long) timeExam.getNumericCellValue());
-                    exam.setTimeExam((long) timeExam.getNumericCellValue());
+                    exam.setTimeExam( isMiniTest.getStringCellValue());
+//                    exam.setTimeExam((long) timeExam.getNumericCellValue());
                     currentExamName = examNameCell.getStringCellValue();
 //                    exam.setFree(isFreeCell.getBooleanCellValue());
                     examRepository.save(exam);

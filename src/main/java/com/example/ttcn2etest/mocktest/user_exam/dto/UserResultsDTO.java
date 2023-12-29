@@ -24,7 +24,7 @@ public class UserResultsDTO {
     private float totalPoint ;
     private String comment;
     private String nameExam ;
-    private long time ;
+    private String time ;
     private String key ;
 
     @JsonFormat(pattern = "dd/MM/yyyy HH:mm" ,timezone = "GMT+7")

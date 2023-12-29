@@ -25,7 +25,7 @@ public class Exam {
     private String id = UUID.randomUUID().toString();
     private String name;
     private String type;
-    private long timeExam;
+    private String timeExam;
     private Date createDate ;
 
     private Boolean isFree  = false;

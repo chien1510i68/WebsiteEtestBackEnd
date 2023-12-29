@@ -15,7 +15,7 @@ import java.util.UUID;
 public class ExamRequest {
     private  String name ;
     private String id ;
-    private long timeExam ;
+    private String timeExam ;
     private Boolean isFree ;
     private String type ;
     List<SectionRequest> sectionRequests ;
