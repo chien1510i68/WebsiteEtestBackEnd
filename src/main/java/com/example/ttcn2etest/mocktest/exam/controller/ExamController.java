@@ -50,7 +50,7 @@ public class ExamController {
     @PreAuthorize("hasAnyAuthority('ADMIN' ,'TEACHER' ,'STAFF')")
     public ResponseEntity<?> updateExam(@RequestBody ExamRequest request) {
         BaseItemResponse baseItemResponse = new BaseItemResponse();
-        baseItemResponse.setSuccess();
+        baseItemResponse.setSuccess(true);
         baseItemResponse.setData(examService.updateExam(request));
         return ResponseEntity.ok(baseItemResponse);
 

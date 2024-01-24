@@ -78,7 +78,7 @@ public class ExamServiceImplm implements ExamService {
         if (!exam.isPresent()) {
             throw new RuntimeException("Không tìm thấy id");
         }
-        exam.get().setTimeExam(request.getTimeExam());
+
         exam.get().setName(request.getName());
         if (request.getIsFree()) {
             exam.get().setIsFree(true);
