@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
 @SpringBootApplication
-public class Ttcn2ETestApplication   {
+public class Ttcn2ETestApplication    {
 
     public static void main(String[] args) {
         SpringApplication.run(Ttcn2ETestApplication.class, args);
